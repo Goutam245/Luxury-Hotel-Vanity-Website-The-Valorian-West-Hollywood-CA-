@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* The Valorian Design System
+   Mood: Ethereal, seductive, dreamlike, sophisticated
+   Visual: Tom Ford Black Orchid meets René Magritte meets Wes Anderson
+*/
+
+@layer base {
+  :root {
+    /* Primary Colors - Ethereal Ivory/Pearl */
+    --background: 40 33% 98%;
+    --foreground: 220 15% 20%;
+
+    /* Card & Surfaces */
+    --card: 40 30% 97%;
+    --card-foreground: 220 15% 20%;
+
+    --popover: 40 30% 99%;
+    --popover-foreground: 220 15% 20%;
+
+    /* Primary - Deep Charcoal with warmth */
+    --primary: 220 15% 18%;
+    --primary-foreground: 40 33% 98%;
+
+    /* Secondary - Soft Champagne */
+    --secondary: 38 35% 92%;
+    --secondary-foreground: 220 15% 20%;
+
+    /* Muted - Subtle gray tones */
+    --muted: 40 20% 94%;
+    --muted-foreground: 220 10% 50%;
+
+    /* Accent - Champagne Gold */
+    --accent: 40 60% 70%;
+    --accent-foreground: 220 15% 15%;
+
+    /* Destructive */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* UI Elements */
+    --border: 40 20% 88%;
+    --input: 40 20% 88%;
+    --ring: 40 60% 70%;
+
+    --radius: 0.25rem;
+
+    /* Custom Valorian Tokens */
+    --valorian-ivory: 40 33% 98%;
+    --valorian-pearl: 40 25% 95%;
+    --valorian-champagne: 40 60% 70%;
+    --valorian-gold: 40 70% 55%;
+    --valorian-charcoal: 220 15% 18%;
+    --valorian-soft-gray: 220 10% 50%;
+    --valorian-blush: 10 40% 90%;
+    --valorian-lavender: 270 20% 92%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(180deg, 
+      hsla(40, 33%, 98%, 0) 0%, 
+      hsla(40, 33%, 98%, 0.6) 50%, 
+      hsla(40, 33%, 98%, 1) 100%);
+    --gradient-overlay: linear-gradient(180deg, 
+      hsla(220, 15%, 18%, 0.1) 0%, 
+      hsla(220, 15%, 18%, 0.4) 100%);
+    --gradient-champagne: linear-gradient(135deg, 
+      hsl(40, 60%, 70%) 0%, 
+      hsl(40, 70%, 55%) 100%);
+    --gradient-pearl: linear-gradient(180deg, 
+      hsl(40, 33%, 98%) 0%, 
+      hsl(40, 25%, 95%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsla(220, 15%, 18%, 0.08);
+    --shadow-medium: 0 8px 30px -8px hsla(220, 15%, 18%, 0.12);
+    --shadow-elegant: 0 20px 60px -20px hsla(220, 15%, 18%, 0.15);
+    --shadow-glow: 0 0 40px hsla(40, 60%, 70%, 0.3);
+
+    /* Typography Scale */
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+
+    /* Animation Durations */
+    --duration-fast: 200ms;
+    --duration-normal: 400ms;
+    --duration-slow: 600ms;
+    --duration-slower: 800ms;
+
+    /* Easing */
+    --ease-elegant: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* Sidebar */
+    --sidebar-background: 40 33% 98%;
+    --sidebar-foreground: 220 15% 20%;
+    --sidebar-primary: 220 15% 18%;
+    --sidebar-primary-foreground: 40 33% 98%;
+    --sidebar-accent: 40 20% 94%;
+    --sidebar-accent-foreground: 220 15% 20%;
+    --sidebar-border: 40 20% 88%;
+    --sidebar-ring: 40 60% 70%;
+  }
+
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 40 20% 95%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 220 20% 12%;
+    --popover-foreground: 40 20% 95%;
+
+    --primary: 40 33% 95%;
+    --primary-foreground: 220 20% 10%;
+
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 40 20% 95%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 40 15% 60%;
+
+    --accent: 40 60% 50%;
+    --accent-foreground: 220 20% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 40 20% 95%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 40 60% 50%;
+
+    --sidebar-background: 220 20% 10%;
+    --sidebar-foreground: 40 20% 95%;
+    --sidebar-primary: 40 60% 50%;
+    --sidebar-primary-foreground: 220 20% 10%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 40 20% 95%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 40 60% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  /* Selection styling */
+  ::selection {
+    @apply bg-accent/30 text-foreground;
+  }
+}
+
+@layer components {
+  /* Elegant underline animation for links */
+  .link-underline {
+    @apply relative inline-block;
+  }
+  
+  .link-underline::after {
+    content: '';
+    @apply absolute w-full scale-x-0 h-px bottom-0 left-0 bg-accent origin-bottom-right transition-transform duration-300;
+  }
+  
+  .link-underline:hover::after {
+    @apply scale-x-100 origin-bottom-left;
+  }
+
+  /* Hero text gradient */
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-champagne);
+  }
+
+  /* Glass effect */
+  .glass {
+    @apply bg-background/80 backdrop-blur-md;
+  }
+
+  /* Luxury button styling */
+  .btn-luxury {
+    @apply relative overflow-hidden transition-all duration-300;
+  }
+
+  .btn-luxury::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full transition-transform duration-500;
+  }
+
+  .btn-luxury:hover::before {
+    @apply translate-x-full;
+  }
+
+  /* Image reveal animation */
+  .reveal-image {
+    @apply overflow-hidden;
+  }
+
+  .reveal-image img {
+    @apply transition-transform duration-700 ease-out;
+  }
+
+  .reveal-image:hover img {
+    @apply scale-105;
+  }
+
+  /* Section padding */
+  .section-padding {
+    @apply py-20 md:py-32 lg:py-40;
+  }
+
+  /* Container max widths */
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-6;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto px-6;
+  }
+
+  /* Text styles */
+  .text-display-xl {
+    @apply font-display text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-none;
+  }
+
+  .text-display-lg {
+    @apply font-display text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-tight;
+  }
+
+  .text-display-md {
+    @apply font-display text-3xl md:text-4xl font-light tracking-tight leading-tight;
+  }
+
+  .text-body-lg {
+    @apply font-body text-lg md:text-xl font-light leading-relaxed;
+  }
+
+  .text-body {
+    @apply font-body text-base font-light leading-relaxed;
+  }
+
+  .text-small {
+    @apply font-body text-sm tracking-wide uppercase;
+  }
+}
+
+@layer utilities {
+  /* Animation delays */
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+  .animation-delay-600 { animation-delay: 600ms; }
+  .animation-delay-700 { animation-delay: 700ms; }
+  .animation-delay-800 { animation-delay: 800ms; }
+
+  /* Custom spacing for luxury feel */
+  .space-luxury { @apply space-y-8 md:space-y-12 lg:space-y-16; }
+}
